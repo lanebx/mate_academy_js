@@ -1,52 +1,27 @@
-/* for (let i = 0; i < 3; i++) {
-    if (i === 2){
-        break;
-    }
-    console.log(i);
-}
-console.log('hhgh');
+//Conversion to boolean
 
-for (let i = 0; i <= 3; i++) {
-    if (i === 2){
-        continue;
-    }
-    console.log(i);
-}
+//false
+let conversion = false;
+conversion = 0;
+conversion = NaN;
+conversion = 0n;
+conversion = '';
+conversion = null;
+conversion = undefined;
 
-let j = 0;
+console.log(
+    Boolean(conversion),
+    !!conversion
+)
 
-for (;;) {
-    if (j < 5){
-        break;
-    }
-    console.log(j);
-    j++;
-}
+//true
+conversion = {};
+conversion = [];
+conversion = function() {};
+conversion = 7;
 
-////////////////////////////
-let n = 1240;
-let j = 0
+console.log(
+    Boolean(conversion),
+    !!conversion
+)
 
-for(; n > 1 ;){
-    if ((n % 2) === 0) {
-        j++;
-    }
-    n /= 2;
-}
-
-console.log(j); */
-
-let count = 0;
-let n1 = 1240;
-
-while (n1 % 2 === 0) {
-    console.log(n1 /= 2);
-    count++;
-}
-
-console.log('всего: ', count);
-
-do {
-    console.log(n1 /= 2);
-    count++;
-}while (n1 % 2 === 0)
