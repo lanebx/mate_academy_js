@@ -9,7 +9,7 @@ const a5 = 'aaa';
 const b5 = 'bbb';
 
 //конкатенация
-console.log(a5 +b5);
+console.log(a5 + b5);
 //интерполяция
 console.log(`${a5}${b5}`);
 //екранирование
