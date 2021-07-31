@@ -26,13 +26,13 @@ console.log(
 )
 
 //Conversion to number
-let value = '100.5';
+let value = '100.5 hghgh';
 
 console.log(Number(value), 'number');
 console.log(+value, '+');
 
 console.log(parseFloat(value), 'parseFloat');
-console.log(parseInt(value, 2), 'parseInt');
+console.log(parseInt(value), 'parseInt');
 
 //Conversion to string
 
