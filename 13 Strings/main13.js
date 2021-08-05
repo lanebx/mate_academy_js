@@ -56,7 +56,8 @@ console.log(
 
     b.charCodeAt(0),  //получить код символа
 
-    a.localeCompare(b)
+    a.localeCompare(b),
+    'localeCompare'
 );
 
 //для сравнения метод a.localeCompare(b);
@@ -101,4 +102,13 @@ const divider = '-'.repeat(19);
 console.log(divider);
 
 //замена симыолов
+
+let phrase1 = 'what time is it';
+
+const res13 = phrase1.replace(' ', '-');
+const resReg = phrase1.replace(/ /g, '-')
+
+console.log(phrase1);
+console.log(res13);
+console.log(resReg);
 
