@@ -3,7 +3,7 @@
 // узнать кол-во символов
 
 let a = 'Mihael';
-let b = 'Davidos';
+let b = 'DavI';
 
 let shortTest = a.length > b.length ? `Больше символов ${a}` : `Больше символов ${b}`;
 
@@ -47,5 +47,58 @@ console.log(
     word.indexOf(part),     //символ с которого начинается первое вхождение.
     word.lastIndexOf(part), //символ с которого начинается последнее вхождение.
     word.startsWith(part),     //Начинается ли строка с подстроки 
-    word.endsWith(part),     //Заканчиввается ли строка подстрокой
+    word.endsWith(part), //Заканчиввается ли строка подстрокой
+
+    b.toUpperCase(),  //Все в верхний регистр
+    b.toLowerCase(),  //Все в нижний ригистр
+    a,
+    b,
+
+    b.charCodeAt(0),  //получить код символа
+
+    a.localeCompare(b)
+);
+
+//для сравнения метод a.localeCompare(b);
+a.localeCompare(b);
+
+//срезы
+
+const mesNum = '0123456789';
+
+console.log(
+    mesNum.substr(3, 5),
+    mesNum.substring(3, 5),
+    mesNum.slice(3, 5),
+    mesNum.slice(-6, -2),
+    mesNum.slice(1, -5)
 )
+
+//удалить лишнее пробелы перед или после текста
+
+const phrase = '   First Last   ';
+
+console.log(
+    phrase.trim(),  
+    phrase.trimRight(),
+    phrase.trimLeft(),
+    phrase.trim()
+)
+
+let cartNumber1 = '2456 5456 4545 8484'
+
+const cartSave = (cartNumber) => {
+    cartNumber = cartNumber.slice(-4);
+    return cartNumber.padStart(19, '**** ');
+}
+
+console.log(cartSave(cartNumber1))
+
+
+//повторение символов
+const divider = '-'.repeat(19);
+
+console.log(divider);
+
+//замена симыолов
+
