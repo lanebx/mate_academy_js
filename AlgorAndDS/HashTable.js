@@ -19,13 +19,25 @@ function HashTable(s = 13) {
         /* установить значение */
         setElemet(key, value) {
             const index = hash(key);
-            store[index] = value;
+
+            if(!store[index] || store[index][0] === key){
+                store[index] = [key, value];
+            } else {
+                console.log(`WARNING при добавлении "${key}" происходит коллизия`)
+            }
+
+            
         },
+
         /* читать значение */
         getElemet(key) {
             const index = hash(key);
-            return console.log(store[index]);
+
+            if(store[index]){
+                return console.log(store[index][1]);
+            }
         },
+
         /* выводит масив целиком */
         dump() {
             return console.log(store);
@@ -36,7 +48,7 @@ function HashTable(s = 13) {
 const ht = new HashTable();
 
 ht.setElemet('knopka', 'Knopka');
-ht.setElemet('k7op5a', 'Knopka');
+ht.setElemet('k7op7a', 'Knopka');
 ht.setElemet('knopkaknopka', 'Vika');
 ht.setElemet('knopkakpkkji', 'Lana');
 
