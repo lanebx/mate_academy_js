@@ -21,7 +21,18 @@ function HashTable(s = 13) {
         }
         return -1;
     }
-    
+
+    /* проверить на наличие ключа в хеш таблице */
+    function searchByKeyInStore(strKey) {
+        for (let j of store) {
+            for (let i in j)
+                if (j[i][0] === strKey) {
+                    return i;
+                } 
+        }
+        return -1;
+    }
+
     return {
         /* установить значение */
         setElemet(key, value) {
@@ -43,20 +54,34 @@ function HashTable(s = 13) {
             
         },
 
+        /* проверить на наличие ключа в хеш таблице */
+        searchByKey(key) {
+            if (searchByKeyInStore(key) >= 0) {
+                return `Ключ ${key} присутсвует в хеш таблице`;
+            } else {
+                return `Ключa ${key} НЕТ в хеш таблице`;
+            }
+        },
+
         /* читать значение */
         getElemet(key) {
+            const sbk1 = searchByKeyInStore(key);
+            if (sbk1 < 0) {
+                return `Ключа "${key}" нет в хеш таблице`;
+            }
+
             const index = hash(key);
             const array = store[index];
             const matchinIndex = getMatchingIndex(array, key);
             
             if(matchinIndex >= 0) {
-                return console.log(store[index][matchinIndex][1]);
+                return store[index][matchinIndex][1];
             } 
         },
 
         /* выводит масив целиком */
         dump() {
-            return console.log(store);
+            return store;
         }
     }
 }
@@ -64,9 +89,12 @@ function HashTable(s = 13) {
 const ht = new HashTable();
 
 ht.setElemet('knopka', 'Knopka');
-ht.setElemet('k7op4a', 'Knopka12');
-ht.setElemet('knopkaknopka', 'Vika');
-ht.setElemet('knopkakpkkji', 'Lana');
+ht.setElemet('120', 'Knopka120');
+ht.setElemet('sisName', 'Vika');
+ht.setElemet('name', 'Lana');
 
-ht.getElemet('knopkakpkkji');
-ht.dump();
+console.log( 
+    ht.getElemet('name1'), 
+    '\n', 
+    ht.dump()
+);
