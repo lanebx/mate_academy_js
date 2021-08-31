@@ -14,16 +14,30 @@ function HashTable(s = 13) {
 
         return index % size;
     }
+
+    function getMatchingIndex(array, key) {
+        for(let i = 0; i< array.length; i++) {
+            if(array[i][0] === key) return i;
+        }
+        return -1;
+    }
     
     return {
         /* установить значение */
         setElemet(key, value) {
             const index = hash(key);
 
-            if(!store[index] || store[index][0] === key){
-                store[index] = [key, value];
+            if(!store[index]){
+                store[index] = [[key, value]];
             } else {
-                console.log(`WARNING при добавлении "${key}" происходит коллизия`)
+                const array = store[index];
+                const matchinIndex = getMatchingIndex(array, key);
+
+                if(matchinIndex >= 0) {
+                    store[index][matchinIndex] = [key, value];
+                } else {
+                    store[index].push([key, value]);
+                }
             }
 
             
@@ -32,10 +46,12 @@ function HashTable(s = 13) {
         /* читать значение */
         getElemet(key) {
             const index = hash(key);
-
-            if(store[index]){
-                return console.log(store[index][1]);
-            }
+            const array = store[index];
+            const matchinIndex = getMatchingIndex(array, key);
+            
+            if(matchinIndex >= 0) {
+                return console.log(store[index][matchinIndex][1]);
+            } 
         },
 
         /* выводит масив целиком */
@@ -48,9 +64,9 @@ function HashTable(s = 13) {
 const ht = new HashTable();
 
 ht.setElemet('knopka', 'Knopka');
-ht.setElemet('k7op7a', 'Knopka');
+ht.setElemet('k7op4a', 'Knopka12');
 ht.setElemet('knopkaknopka', 'Vika');
 ht.setElemet('knopkakpkkji', 'Lana');
 
-ht.getElemet('knopka');
+ht.getElemet('knopkakpkkji');
 ht.dump();
