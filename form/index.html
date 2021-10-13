@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/form/style.css">
+
   <title>Формы</title>
 </head>
+
 <body>
-  
+  <form action="#">
+    <div class="form-field">
+      x:
+      <input type="text" name="x" placeholder="x value">
+    </div>
+    <div class="form-field">
+      y:
+      <input type="text" name="y" value="123" readonly>
+    </div>
+    <div class="form-field">
+      z:
+      <input type="text" name="z" value="123">
+    </div>
+
+    <button>Search</button>
+  </form>
+  <br>
+
+  <!-- 
+      POST - не передает даные в адресс
+      GET  - передает все в ссылку
+   -->
+  <form action="https://webhook.site/cbe5b120-2589-4819-826e-71ab37b5ac71" method="post">
+    <div class="form-field">
+      Email:
+      <input type="email" name="email" required>
+    </div>
+    
+    <div class="form-field">
+      Username:
+      <input type="text" name="username" required>
+    </div>
+
+    <div class="form-field">
+      Passvord:
+      <input 
+        type="password" 
+        name="password" 
+        required 
+        minlength="5" 
+        maxlength="15"
+      >
+    </div>
+
+    <div class="checkbox-button-remember">
+      <input type="checkbox" name="remember" id="remember-condition"> 
+      <label for="remember-condition">
+        Remember me 
+      </label>
+    </div>
+
+    <!-- 
+        label упрощает работу с формами, 
+        особенно на моб телефонах из-за эфекта фокусировки. 
+    -->
+    <label class="checkbox-button-terms">
+      <input type="checkbox" name="terms" required> I agre
+    </label>
+
+    <button type="button">button</button>
+    <button type="reset">reset</button>
+    <button type="submit">submit</button>
+  </form>
 </body>
+
 </html>
