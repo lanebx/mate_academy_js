@@ -1,0 +1,12 @@
+html {
+  font-family: Arial, sans-serif;
+  font-style: 18px;
+  color: #333a4a;
+  background-color: #f5f6f1;
+
+  --selection-border-color: #ced2ed;
+}
+
+.header {
+  
+}
